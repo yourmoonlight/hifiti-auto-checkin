@@ -29,7 +29,8 @@ async function getSign(cookie) {
   return sign;
 }
 
-function checkIn(cookie, sign) {
+//function checkIn(cookie, sign) {
+function checkIn(cookie) {
   fetch(signPageUrl, {
     method: "POST",
     headers: {
@@ -38,7 +39,7 @@ function checkIn(cookie, sign) {
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
       "X-Requested-With": "XMLHttpRequest",
     },
-    body: `sign=${sign}`,
+    //body: `sign=${sign}`,
   })
     .then((res) => res.json())
     .then((resJson) => {
@@ -63,9 +64,10 @@ async function main() {
     process.exit(1);
   }
 
-  let sign = await getSign(cookie);
+  //let sign = await getSign(cookie);
 
-  checkIn(cookie, sign);
+  //checkIn(cookie, sign);
+  checkIn(cookie);
 }
 
 main();
