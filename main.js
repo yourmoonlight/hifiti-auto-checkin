@@ -15,6 +15,7 @@ async function getSign(cookie) {
     headers: generateBaseHeaders(cookie),
   });
   const resText = await response.text();
+  console.log(resText);
 
   const re = /var sign\s*=\s*"([^"]+)"/;
   const result = re.exec(resText);
